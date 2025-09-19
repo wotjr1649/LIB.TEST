@@ -1,0 +1,10 @@
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\bin\Release\net8.0\Lib.Log.deps.json
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\bin\Release\net8.0\Lib.Log.dll
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\obj\Release\net8.0\Lib.Log.csproj.AssemblyReference.cache
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\obj\Release\net8.0\Lib.Log.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\obj\Release\net8.0\Lib.Log.AssemblyInfoInputs.cache
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\obj\Release\net8.0\Lib.Log.AssemblyInfo.cs
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\obj\Release\net8.0\Lib.Log.csproj.CoreCompileInputs.cache
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\obj\Release\net8.0\Lib.Log.dll
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\obj\Release\net8.0\refint\Lib.Log.dll
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Log\obj\Release\net8.0\ref\Lib.Log.dll

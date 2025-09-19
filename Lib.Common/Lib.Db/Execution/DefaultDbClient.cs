@@ -1,0 +1,203 @@
+using System.Collections.Generic;
+using System;
+using System.Data;
+using System.Runtime.CompilerServices;
+using Lib.Db.Abstractions;
+using Lib.Db.Configuration;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+
+namespace Lib.Db.Execution;
+
+/// <summary>
+/// SqlDataSource + Polly 파이프라인을 이용해 실제 데이터베이스 명령을 수행하는 기본 구현입니다.
+/// </summary>
+internal sealed class DefaultDbClient : IDbClient
+{
+    private readonly IOptionsMonitor<DbOptions> _dbOptions;
+    private readonly IOptionsMonitor<DbResilienceOptions> _resilienceOptions;
+    private readonly SqlDataSourceFactory _dataSourceFactory;
+    private readonly IDbResiliencePipelineProvider _pipelineProvider;
+    private readonly ILogger<DefaultDbClient> _logger;
+
+    public DefaultDbClient(
+        IOptionsMonitor<DbOptions> dbOptions,
+        IOptionsMonitor<DbResilienceOptions> resilienceOptions,
+        SqlDataSourceFactory dataSourceFactory,
+        IDbResiliencePipelineProvider pipelineProvider,
+        ILogger<DefaultDbClient> logger)
+    {
+        _dbOptions = dbOptions;
+        _resilienceOptions = resilienceOptions;
+        _dataSourceFactory = dataSourceFactory;
+        _pipelineProvider = pipelineProvider;
+        _logger = logger;
+    }
+
+    public Task<int> ExecuteNonQueryAsync(QueryDefinition query, CancellationToken cancellationToken = default)
+    {
+        return ExecuteWithPipelineAsync(query, static async (command, token) =>
+        {
+            return await command.ExecuteNonQueryAsync(token).ConfigureAwait(false);
+        }, cancellationToken);
+    }
+
+    public Task<T?> ExecuteScalarAsync<T>(QueryDefinition query, CancellationToken cancellationToken = default)
+    {
+        return ExecuteWithPipelineAsync(query, static async (command, token) =>
+        {
+            var result = await command.ExecuteScalarAsync(token).ConfigureAwait(false);
+            if (result is null || result is DBNull)
+            {
+                return default;
+            }
+
+            return (T?)Convert.ChangeType(result, typeof(T));
+        }, cancellationToken);
+    }
+
+    public IAsyncEnumerable<T> QueryAsync<T>(QueryDefinition query, Func<IDataRecord, T> projector, CancellationToken cancellationToken = default)
+    {
+        return ExecuteReaderAsync(query, projector, cancellationToken);
+    }
+
+    public ValueTask DisposeAsync()
+    {
+        _dataSourceFactory.Dispose();
+        return ValueTask.CompletedTask;
+    }
+
+    private async Task<TResult> ExecuteWithPipelineAsync<TResult>(
+        QueryDefinition query,
+        Func<SqlCommand, CancellationToken, Task<TResult>> executor,
+        CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        var optionsSnapshot = _dbOptions.CurrentValue;
+        var connectionName = string.IsNullOrWhiteSpace(query.ConnectionName)
+            ? optionsSnapshot.DefaultConnectionName
+            : query.ConnectionName!;
+
+        var dataSource = _dataSourceFactory.GetDataSource(connectionName);
+        var pipeline = await _pipelineProvider.GetPipelineAsync(connectionName, cancellationToken).ConfigureAwait(false);
+
+        return await pipeline.ExecuteAsync(async token =>
+        {
+            await using var connection = await dataSource.OpenConnectionAsync(token).ConfigureAwait(false);
+
+            SqlTransaction? transaction = null;
+            try
+            {
+                if (query.IsolationLevel.HasValue && query.IsolationLevel.Value != IsolationLevel.Unspecified)
+                {
+                    transaction = await connection.BeginTransactionAsync(query.IsolationLevel.Value, token).ConfigureAwait(false);
+                }
+
+                await using var command = CreateCommand(connection, transaction, optionsSnapshot, query);
+                var result = await executor(command, token).ConfigureAwait(false);
+
+                if (transaction is not null)
+                {
+                    await transaction.CommitAsync(token).ConfigureAwait(false);
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (transaction is not null)
+                {
+                    try
+                    {
+                        await transaction.RollbackAsync(token).ConfigureAwait(false);
+                    }
+                    catch (Exception rollbackEx)
+                    {
+                        _logger.LogWarning(rollbackEx, "Rollback failed after exception '{Message}'.", ex.Message);
+                    }
+                }
+
+                throw;
+            }
+            finally
+            {
+                if (transaction is not null)
+                {
+                    await transaction.DisposeAsync().ConfigureAwait(false);
+                }
+            }
+        }, cancellationToken).ConfigureAwait(false);
+    }
+
+    private async IAsyncEnumerable<T> ExecuteReaderAsync<T>(
+        QueryDefinition query,
+        Func<IDataRecord, T> projector,
+        [EnumeratorCancellation] CancellationToken cancellationToken)
+    {
+        var rows = await ExecuteWithPipelineAsync(query, async (command, token) =>
+        {
+            var buffer = new List<T>();
+            await using var reader = await command.ExecuteReaderAsync(CommandBehavior.SequentialAccess, token).ConfigureAwait(false);
+            while (await reader.ReadAsync(token).ConfigureAwait(false))
+            {
+                buffer.Add(projector(reader));
+            }
+            return buffer;
+        }, cancellationToken).ConfigureAwait(false);
+
+        foreach (var row in rows)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            yield return row;
+        }
+    }
+
+    private static SqlCommand CreateCommand(SqlConnection connection, SqlTransaction? transaction, DbOptions options, QueryDefinition query)
+    {
+        var command = connection.CreateCommand();
+        command.Transaction = transaction;
+        command.CommandText = query.CommandText;
+        command.CommandType = query.CommandType;
+
+        var timeout = query.CommandTimeout ?? options.CommandTimeout;
+        if (timeout <= TimeSpan.Zero)
+        {
+            command.CommandTimeout = 0; // 무한대
+        }
+        else
+        {
+            command.CommandTimeout = (int)Math.Ceiling(timeout.TotalSeconds);
+        }
+
+        foreach (var parameter in query.Parameters)
+        {
+            var sqlParameter = command.CreateParameter();
+            sqlParameter.ParameterName = parameter.Name;
+            sqlParameter.Value = parameter.Value ?? DBNull.Value;
+            if (parameter.DbType.HasValue)
+            {
+                sqlParameter.DbType = parameter.DbType.Value;
+            }
+            if (parameter.Size.HasValue)
+            {
+                sqlParameter.Size = parameter.Size.Value;
+            }
+            if (parameter.Precision.HasValue)
+            {
+                sqlParameter.Precision = parameter.Precision.Value;
+            }
+            if (parameter.Scale.HasValue)
+            {
+                sqlParameter.Scale = parameter.Scale.Value;
+            }
+            sqlParameter.Direction = parameter.Direction;
+            command.Parameters.Add(sqlParameter);
+        }
+
+        return command;
+    }
+}
+
+

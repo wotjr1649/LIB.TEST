@@ -1,0 +1,10 @@
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\bin\Release\net8.0\Lib.Db.deps.json
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\bin\Release\net8.0\Lib.Db.dll
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\obj\Release\net8.0\Lib.Db.csproj.AssemblyReference.cache
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\obj\Release\net8.0\Lib.Db.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\obj\Release\net8.0\Lib.Db.AssemblyInfoInputs.cache
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\obj\Release\net8.0\Lib.Db.AssemblyInfo.cs
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\obj\Release\net8.0\Lib.Db.csproj.CoreCompileInputs.cache
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\obj\Release\net8.0\Lib.Db.dll
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\obj\Release\net8.0\refint\Lib.Db.dll
+C:\Users\js\Documents\BOWOO\20250919\TEST\Lib.Common\Lib.Db\obj\Release\net8.0\ref\Lib.Db.dll

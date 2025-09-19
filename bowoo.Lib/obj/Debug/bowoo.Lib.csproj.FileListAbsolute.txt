@@ -1,0 +1,61 @@
+C:\Sources\WCS\bowoo.Lib\bin\Debug\bowoo.Lib.dll
+C:\Sources\WCS\bowoo.Lib\bin\Debug\bowoo.Lib.pdb
+C:\Sources\WCS\bowoo.Lib\bin\Debug\bowoo.Framework.common.dll
+C:\Sources\WCS\bowoo.Lib\bin\Debug\lib.Common.dll
+C:\Sources\WCS\bowoo.Lib\bin\Debug\lib.Common.Log.dll
+C:\Sources\WCS\bowoo.Lib\bin\Debug\TripleDESCrypto.dll
+C:\Sources\WCS\bowoo.Lib\bin\Debug\bowoo.Framework.common.pdb
+C:\Sources\WCS\bowoo.Lib\bin\Debug\lib.Common.pdb
+C:\Sources\WCS\bowoo.Lib\bin\Debug\lib.Common.Log.pdb
+C:\Sources\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.csprojResolveAssemblyReference.cache
+C:\Sources\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.dll
+C:\Sources\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Debug\bowoo.Lib.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Debug\bowoo.Lib.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Debug\bowoo.Framework.common.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Debug\lib.Common.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Debug\lib.Common.Log.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Debug\TripleDESCrypto.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Debug\bowoo.Framework.common.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Debug\lib.Common.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Debug\lib.Common.Log.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\bowoo.Lib.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\bowoo.Lib.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\bowoo.Framework.common.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\lib.Common.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\lib.Common.Log.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\TripleDESCrypto.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\Telerik.WinControls.GridView.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\Telerik.WinControls.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\Telerik.WinControls.UI.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\TelerikCommon.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\bowoo.Framework.common.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\lib.Common.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\bin\Debug\lib.Common.Log.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.csproj.AssemblyReference.cache
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.csproj.CoreCompileInputs.cache
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.csproj.Up2Date
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS\bowoo.Lib\obj\Debug\bowoo.Lib.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\bowoo.Lib.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\bowoo.Lib.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\bowoo.Framework.common.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\lib.Common.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\lib.Common.Log.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\TripleDESCrypto.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\Telerik.WinControls.GridView.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\Telerik.WinControls.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\Telerik.WinControls.UI.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\TelerikCommon.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\bowoo.Framework.common.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\lib.Common.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\bin\Debug\lib.Common.Log.pdb
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\obj\Debug\bowoo.Lib.csproj.AssemblyReference.cache
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\obj\Debug\bowoo.Lib.csproj.CoreCompileInputs.cache
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\obj\Debug\bowoo.Lib.csproj.Up2Date
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\obj\Debug\bowoo.Lib.dll
+C:\Users\js\Documents\DEV\기본 wcs 프로그램\WCS_4\bowoo.Lib\obj\Debug\bowoo.Lib.pdb

@@ -1,0 +1,25 @@
+C:\Sources\WCS\bowoo.Lib\bin\Release\bowoo.Lib.dll
+C:\Sources\WCS\bowoo.Lib\bin\Release\bowoo.Lib.pdb
+C:\Sources\WCS\bowoo.Lib\bin\Release\bowoo.Framework.common.dll
+C:\Sources\WCS\bowoo.Lib\bin\Release\lib.Common.dll
+C:\Sources\WCS\bowoo.Lib\bin\Release\lib.Common.Log.dll
+C:\Sources\WCS\bowoo.Lib\bin\Release\TripleDESCrypto.dll
+C:\Sources\WCS\bowoo.Lib\bin\Release\bowoo.Framework.common.pdb
+C:\Sources\WCS\bowoo.Lib\bin\Release\lib.Common.pdb
+C:\Sources\WCS\bowoo.Lib\bin\Release\lib.Common.Log.pdb
+C:\Sources\WCS\bowoo.Lib\obj\Release\bowoo.Lib.csprojResolveAssemblyReference.cache
+C:\Sources\WCS\bowoo.Lib\obj\Release\bowoo.Lib.dll
+C:\Sources\WCS\bowoo.Lib\obj\Release\bowoo.Lib.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Release\bowoo.Lib.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Release\bowoo.Lib.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Release\bowoo.Framework.common.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Release\lib.Common.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Release\lib.Common.Log.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Release\TripleDESCrypto.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Release\bowoo.Framework.common.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Release\lib.Common.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\bin\Release\lib.Common.Log.pdb
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\obj\Release\bowoo.Lib.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\obj\Release\bowoo.Lib.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\obj\Release\bowoo.Lib.dll
+C:\Users\Lenovo\Desktop\최영일\새 폴더\WCS\bowoo.Lib\obj\Release\bowoo.Lib.pdb

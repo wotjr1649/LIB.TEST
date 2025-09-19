@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{49DCC426-467B-408A-8D20-EE8E697FBC78}|Lib.Test\\Lib.Test.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.test\\logtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49DCC426-467B-408A-8D20-EE8E697FBC78}|Lib.Test\\Lib.Test.csproj|solutionrelative:lib.test\\logtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.db\\configuration\\configuredboptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|solutionrelative:lib.db\\configuration\\configuredboptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.db\\execution\\sqldatasourcefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|solutionrelative:lib.db\\execution\\sqldatasourcefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49DCC426-467B-408A-8D20-EE8E697FBC78}|Lib.Test\\Lib.Test.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.test\\lib.test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{49DCC426-467B-408A-8D20-EE8E697FBC78}|Lib.Test\\Lib.Test.csproj|solutionrelative:lib.test\\lib.test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49DCC426-467B-408A-8D20-EE8E697FBC78}|Lib.Test\\Lib.Test.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.test\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49DCC426-467B-408A-8D20-EE8E697FBC78}|Lib.Test\\Lib.Test.csproj|solutionrelative:lib.test\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49DCC426-467B-408A-8D20-EE8E697FBC78}|Lib.Test\\Lib.Test.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.test\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{49DCC426-467B-408A-8D20-EE8E697FBC78}|Lib.Test\\Lib.Test.csproj|solutionrelative:lib.test\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.db\\execution\\defaultdbclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|solutionrelative:lib.db\\execution\\defaultdbclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.db\\abstractions\\idbclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|solutionrelative:lib.db\\abstractions\\idbclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.db\\configuration\\dboptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|solutionrelative:lib.db\\configuration\\dboptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|c:\\users\\js\\documents\\bowoo\\20250919\\test\\lib.common\\lib.db\\lib.db.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EDC27BC7-949F-462C-98EE-AE192624F62C}|Lib.Db\\Lib.Db.csproj|solutionrelative:lib.db\\lib.db.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SqlDataSourceFactory.cs",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Execution\\SqlDataSourceFactory.cs",
+              "RelativeDocumentMoniker": "Lib.Db\\Execution\\SqlDataSourceFactory.cs",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Execution\\SqlDataSourceFactory.cs",
+              "RelativeToolTip": "Lib.Db\\Execution\\SqlDataSourceFactory.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAywBAAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T04:20:55.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ConfigureDbOptions.cs",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Configuration\\ConfigureDbOptions.cs",
+              "RelativeDocumentMoniker": "Lib.Db\\Configuration\\ConfigureDbOptions.cs",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Configuration\\ConfigureDbOptions.cs",
+              "RelativeToolTip": "Lib.Db\\Configuration\\ConfigureDbOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T04:20:45.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lib.Test",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Test\\Lib.Test.csproj",
+              "RelativeDocumentMoniker": "Lib.Test\\Lib.Test.csproj",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Test\\Lib.Test.csproj",
+              "RelativeToolTip": "Lib.Test\\Lib.Test.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-19T04:14:46.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Test\\appsettings.json",
+              "RelativeDocumentMoniker": "Lib.Test\\appsettings.json",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Test\\appsettings.json",
+              "RelativeToolTip": "Lib.Test\\appsettings.json",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAQwDsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-19T04:14:52.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LogTest.cs",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Test\\LogTest.cs",
+              "RelativeDocumentMoniker": "Lib.Test\\LogTest.cs",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Test\\LogTest.cs",
+              "RelativeToolTip": "Lib.Test\\LogTest.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAywEYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T04:05:19.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "main.cs",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Test\\main.cs",
+              "RelativeDocumentMoniker": "Lib.Test\\main.cs",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Test\\main.cs",
+              "RelativeToolTip": "Lib.Test\\main.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T04:05:04.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DefaultDbClient.cs",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Execution\\DefaultDbClient.cs",
+              "RelativeDocumentMoniker": "Lib.Db\\Execution\\DefaultDbClient.cs",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Execution\\DefaultDbClient.cs",
+              "RelativeToolTip": "Lib.Db\\Execution\\DefaultDbClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T02:32:50.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IDbClient.cs",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Abstractions\\IDbClient.cs",
+              "RelativeDocumentMoniker": "Lib.Db\\Abstractions\\IDbClient.cs",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Abstractions\\IDbClient.cs",
+              "RelativeToolTip": "Lib.Db\\Abstractions\\IDbClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T02:31:51.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DbOptions.cs",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Configuration\\DbOptions.cs",
+              "RelativeDocumentMoniker": "Lib.Db\\Configuration\\DbOptions.cs",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Configuration\\DbOptions.cs",
+              "RelativeToolTip": "Lib.Db\\Configuration\\DbOptions.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T02:27:16.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Lib.Db",
+              "DocumentMoniker": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Lib.Db.csproj",
+              "RelativeDocumentMoniker": "Lib.Db\\Lib.Db.csproj",
+              "ToolTip": "C:\\Users\\js\\Documents\\BOWOO\\20250919\\TEST\\Lib.Common\\Lib.Db\\Lib.Db.csproj",
+              "RelativeToolTip": "Lib.Db\\Lib.Db.csproj",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-19T02:15:25.537Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
