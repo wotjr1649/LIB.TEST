@@ -2,12 +2,13 @@ using System;
 using System.Data;
 using System.Globalization;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Runtime.CompilerServices;
 using Lib.Db.Abstractions;
 using Lib.Db.Configuration;
-using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Polly;
 
 namespace Lib.Db.Execution;
 
@@ -17,20 +18,22 @@ namespace Lib.Db.Execution;
 internal sealed class DefaultDbClient : IDbClient
 {
     private readonly IOptionsMonitor<DbOptions> _dbOptions;
-    private readonly IOptionsMonitor<DbResilienceOptions> _resilienceOptions;
     private readonly SqlDataSourceFactory _dataSourceFactory;
     private readonly IDbResiliencePipelineProvider _pipelineProvider;
     private readonly ILogger<DefaultDbClient> _logger;
 
+    private static readonly ResiliencePropertyKey<string> ConnectionNameKey = new("Lib.Db.ConnectionName");
+    private static readonly ResiliencePropertyKey<string> CommandTextKey = new("Lib.Db.CommandText");
+    private static readonly ResiliencePropertyKey<CommandType> CommandTypeKey = new("Lib.Db.CommandType");
+    private static readonly ResiliencePropertyKey<object?> QueryTagKey = new("Lib.Db.Tag");
+
     public DefaultDbClient(
         IOptionsMonitor<DbOptions> dbOptions,
-        IOptionsMonitor<DbResilienceOptions> resilienceOptions,
         SqlDataSourceFactory dataSourceFactory,
         IDbResiliencePipelineProvider pipelineProvider,
         ILogger<DefaultDbClient> logger)
     {
         _dbOptions = dbOptions;
-        _resilienceOptions = resilienceOptions;
         _dataSourceFactory = dataSourceFactory;
         _pipelineProvider = pipelineProvider;
         _logger = logger;
@@ -66,7 +69,7 @@ internal sealed class DefaultDbClient : IDbClient
 
     private async Task<TResult> ExecuteWithPipelineAsync<TResult>(
         QueryDefinition query,
-        Func<SqlCommand, CancellationToken, Task<TResult>> executor,
+        Func<DbCommand, CancellationToken, Task<TResult>> executor,
         CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
@@ -79,11 +82,26 @@ internal sealed class DefaultDbClient : IDbClient
         var dataSource = _dataSourceFactory.GetDataSource(connectionName);
         var pipeline = await _pipelineProvider.GetPipelineAsync(connectionName, cancellationToken).ConfigureAwait(false);
 
-        return await pipeline.ExecuteAsync(async token =>
+        return await pipeline.ExecuteAsync(async ValueTask<TResult> (context) =>
         {
+            if (string.IsNullOrWhiteSpace(context.OperationKey))
+            {
+                context.OperationKey = query.CommandText;
+            }
+
+            context.Properties.Set(ConnectionNameKey, connectionName);
+            context.Properties.Set(CommandTextKey, query.CommandText);
+            context.Properties.Set(CommandTypeKey, query.CommandType);
+            if (query.Tag is not null)
+            {
+                context.Properties.Set(QueryTagKey, query.Tag);
+            }
+
+            var token = context.CancellationToken;
+
             await using var connection = await dataSource.OpenConnectionAsync(token).ConfigureAwait(false);
 
-            SqlTransaction? transaction = null;
+            DbTransaction? transaction = null;
             try
             {
                 var effectiveIsolation = query.IsolationLevel ?? optionsSnapshot.DefaultIsolationLevel;
@@ -224,7 +242,7 @@ internal sealed class DefaultDbClient : IDbClient
         }
     }
 
-    private static SqlCommand CreateCommand(SqlConnection connection, SqlTransaction? transaction, DbOptions options, QueryDefinition query)
+    private static DbCommand CreateCommand(DbConnection connection, DbTransaction? transaction, DbOptions options, QueryDefinition query)
     {
         var command = connection.CreateCommand();
         command.Transaction = transaction;
