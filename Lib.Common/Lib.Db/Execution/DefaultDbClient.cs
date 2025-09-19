@@ -12,7 +12,7 @@ using Microsoft.Extensions.Options;
 namespace Lib.Db.Execution;
 
 /// <summary>
-/// SqlDataSource + Polly 파이프라인을 이용해 실제 데이터베이스 명령을 수행하는 기본 구현입니다.
+/// DbDataSource + Polly 파이프라인을 이용해 실제 데이터베이스 명령을 수행하는 기본 구현입니다.
 /// </summary>
 internal sealed class DefaultDbClient : IDbClient
 {
