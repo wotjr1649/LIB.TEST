@@ -2,16 +2,10 @@ using Lib.Db.Abstractions;
 using Lib.Db.Configuration;
 using Lib.Db.Execution;
 using Lib.Db.Resilience;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-
-namespace Lib.Db.Extensions;
-
-/// <summary>
-/// Lib.Log 과 유사한 개발 경험을 제공하기 위한 DI 등록 도우미입니다.
-/// </summary>
-using Microsoft.Extensions.Configuration;
 
 namespace Lib.Db.Extensions;
 
@@ -34,6 +28,7 @@ public static class ServiceCollectionExtensions
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IConfigureOptions<DbOptions>, ConfigureDbOptions>());
 
         var dbOptionsBuilder = services.AddOptions<DbOptions>();
+        dbOptionsBuilder.BindConfiguration("Lib:Db:Options", binder => binder.ErrorOnUnknownConfiguration = false);
         if (configure is not null)
         {
             dbOptionsBuilder.Configure(configure);
@@ -52,6 +47,7 @@ public static class ServiceCollectionExtensions
         dbOptionsBuilder.ValidateOnStart();
 
         var resilienceBuilder = services.AddOptions<DbResilienceOptions>();
+        resilienceBuilder.BindConfiguration("Lib:Db:Resilience", binder => binder.ErrorOnUnknownConfiguration = false);
         if (configureResilience is not null)
         {
             resilienceBuilder.Configure(configureResilience);

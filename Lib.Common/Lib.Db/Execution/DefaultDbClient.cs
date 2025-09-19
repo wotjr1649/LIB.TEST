@@ -1,6 +1,7 @@
-using System.Collections.Generic;
 using System;
 using System.Data;
+using System.Globalization;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Lib.Db.Abstractions;
 using Lib.Db.Configuration;
@@ -48,12 +49,7 @@ internal sealed class DefaultDbClient : IDbClient
         return ExecuteWithPipelineAsync(query, static async (command, token) =>
         {
             var result = await command.ExecuteScalarAsync(token).ConfigureAwait(false);
-            if (result is null || result is DBNull)
-            {
-                return default;
-            }
-
-            return (T?)Convert.ChangeType(result, typeof(T));
+            return ConvertScalar<T>(result);
         }, cancellationToken);
     }
 
@@ -90,9 +86,10 @@ internal sealed class DefaultDbClient : IDbClient
             SqlTransaction? transaction = null;
             try
             {
-                if (query.IsolationLevel.HasValue && query.IsolationLevel.Value != IsolationLevel.Unspecified)
+                var effectiveIsolation = query.IsolationLevel ?? optionsSnapshot.DefaultIsolationLevel;
+                if (effectiveIsolation != IsolationLevel.Unspecified)
                 {
-                    transaction = await connection.BeginTransactionAsync(query.IsolationLevel.Value, token).ConfigureAwait(false);
+                    transaction = await connection.BeginTransactionAsync(effectiveIsolation, token).ConfigureAwait(false);
                 }
 
                 await using var command = CreateCommand(connection, transaction, optionsSnapshot, query);
@@ -129,6 +126,79 @@ internal sealed class DefaultDbClient : IDbClient
                 }
             }
         }, cancellationToken).ConfigureAwait(false);
+    }
+
+    private static T? ConvertScalar<T>(object? value)
+    {
+        if (value is null || value is DBNull)
+        {
+            return default;
+        }
+
+        var targetType = typeof(T);
+        if (targetType == typeof(object) || targetType.IsInstanceOfType(value))
+        {
+            return (T)value;
+        }
+
+        var underlying = Nullable.GetUnderlyingType(targetType);
+        if (underlying is not null)
+        {
+            var converted = ConvertScalarCore(value, underlying);
+            return converted is null ? default : (T)converted;
+        }
+
+        return (T)ConvertScalarCore(value, targetType)!;
+    }
+
+    private static object? ConvertScalarCore(object value, Type targetType)
+    {
+        if (value is null)
+        {
+            return null;
+        }
+
+        if (targetType.IsInstanceOfType(value))
+        {
+            return value;
+        }
+
+        if (targetType == typeof(Guid))
+        {
+            return value switch
+            {
+                Guid guid => guid,
+                string text => Guid.Parse(text, CultureInfo.InvariantCulture),
+                byte[] bytes => new Guid(bytes),
+                ReadOnlyMemory<byte> rom => new Guid(rom.ToArray()),
+                Memory<byte> mem => new Guid(mem.Span),
+                _ => new Guid(Convert.ToString(value, CultureInfo.InvariantCulture)!)
+            };
+        }
+
+        if (targetType == typeof(byte[]))
+        {
+            return value switch
+            {
+                byte[] bytes => bytes,
+                ReadOnlyMemory<byte> rom => rom.ToArray(),
+                Memory<byte> mem => mem.ToArray(),
+                _ => throw new InvalidCastException($"값 '{value}'(형식 {value.GetType()})을 byte[]로 변환할 수 없습니다.")
+            };
+        }
+
+        if (targetType.IsEnum)
+        {
+            if (value is string enumName)
+            {
+                return Enum.Parse(targetType, enumName, ignoreCase: true);
+            }
+
+            var numeric = Convert.ChangeType(value, Enum.GetUnderlyingType(targetType), CultureInfo.InvariantCulture);
+            return Enum.ToObject(targetType, numeric!);
+        }
+
+        return Convert.ChangeType(value, targetType, CultureInfo.InvariantCulture);
     }
 
     private async IAsyncEnumerable<T> ExecuteReaderAsync<T>(
