@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Data.Common;
 using Lib.Db.Configuration;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
@@ -8,13 +9,13 @@ using Microsoft.Extensions.Options;
 namespace Lib.Db.Execution;
 
 /// <summary>
-/// 연결 문자열 이름별 <see cref="SqlDataSource"/> 를 캐싱하고 관리합니다.
+/// 연결 문자열 이름별 <see cref="DbDataSource"/> 를 캐싱하고 관리합니다.
 /// </summary>
 internal sealed class SqlDataSourceFactory : IDisposable
 {
     private readonly IOptionsMonitor<DbOptions> _options;
     private readonly ILogger<SqlDataSourceFactory> _logger;
-    private readonly ConcurrentDictionary<string, SqlDataSource> _sources = new(StringComparer.OrdinalIgnoreCase);
+    private readonly ConcurrentDictionary<string, DbDataSource> _sources = new(StringComparer.OrdinalIgnoreCase);
 
     public SqlDataSourceFactory(IOptionsMonitor<DbOptions> options, ILogger<SqlDataSourceFactory> logger)
     {
@@ -35,7 +36,7 @@ internal sealed class SqlDataSourceFactory : IDisposable
         });
     }
 
-    public SqlDataSource GetDataSource(string? connectionName)
+    public DbDataSource GetDataSource(string? connectionName)
     {
         var key = string.IsNullOrWhiteSpace(connectionName)
             ? _options.CurrentValue.DefaultConnectionName
@@ -44,7 +45,7 @@ internal sealed class SqlDataSourceFactory : IDisposable
         return _sources.GetOrAdd(key, CreateDataSource);
     }
 
-    private SqlDataSource CreateDataSource(string connectionName)
+    private DbDataSource CreateDataSource(string connectionName)
     {
         var options = _options.CurrentValue;
         if (!options.ConnectionStrings.TryGetValue(connectionName, out var connectionString) || string.IsNullOrWhiteSpace(connectionString))
@@ -53,7 +54,7 @@ internal sealed class SqlDataSourceFactory : IDisposable
         }
 
         _logger.LogInformation("Creating SqlDataSource for connection '{Connection}'.", connectionName);
-        return SqlDataSource.Create(connectionString);
+        return SqlClientFactory.Instance.CreateDataSource(connectionString);
     }
 
     public void Dispose()
